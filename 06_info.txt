@@ -1,0 +1,7 @@
+・bodyタグ内に挿入：
+
+必須
+<script type="text/javascript" src="cordova.js"></script>
+
+AdMobを使う場合、main.jsの直下に
+<script type="text/javascript" src="js/admob.js"></script>

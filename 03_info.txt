@@ -1,0 +1,14 @@
+・widgetタグ内に挿入：
+
+縦画面なら　<preference name="Orientation" value="portrait" />
+
+横画面なら　<preference name="Orientation" value="landscape" />
+
+アイコン設定　<icon src="www/icon/icon.png" />
+
+・platformタグ内の一部を上書き：
+
+<platform name="android">
+    <allow-intent href="market:*" />
+        <preference name="android-minSdkVersion" value="21" />
+</platform>
