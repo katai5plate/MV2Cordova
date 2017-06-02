@@ -29,7 +29,7 @@ set K_MEMO=%C_ROOT%\keystore_memo.txt
 rem ===== メイン ============================================
 
 echo.
-echo ■■■ MV 2 Cordova ■■■ v1.0 by Had2Apps
+echo ■■■ MV 2 Cordova ■■■ v1.0.1 by Had2Apps
 echo.
 
 echo ▼ ディレクトリ名を入力してください
@@ -71,7 +71,8 @@ echo ksd : キーストアの保管場所を開く（無い場合は開きません）
 echo con : コンソールを開く
 echo end : 終了
 echo.
-echo ★ HINT：new / gmr → (tes) → key → dep
+echo ★ HINT：新規の場合の手順　new → (tes) → key → dep
+echo ★ HINT：更新の場合の手順　gmr → (tes) → dep
 echo.
 set /p C_YES= "INPUT : "
 IF %C_YES%==new goto new
