@@ -29,7 +29,7 @@ set K_MEMO=%C_ROOT%\keystore_memo.txt
 rem ===== メイン ============================================
 
 echo.
-echo ■■■ MV 2 Cordova ■■■ by Had2Apps
+echo ■■■ MV 2 Cordova ■■■ v1.0 by Had2Apps
 echo.
 
 echo ▼ ディレクトリ名を入力してください
