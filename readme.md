@@ -4,6 +4,7 @@ Version 1.0.1
 # これは何？
 ツクールMVゲームをAndroid対応Cordovaアプリに「しやすくする」ツールです。<br>
 一々コマンド入力したり、手順を覚えるのが超面倒くさいので作りました。<br>
+あくまで自分用に作ったので、動作は保障しません。<br>
 
 # 使う前の準備
 ## １．インスコしておくべきものを全部そろえておく
@@ -28,6 +29,55 @@ Version 1.0.1
 ## ４．XMLファイルとHTMLファイルをテキストエディタに関連付けする
 XMLファイルとHTMLファイルが自動で開いたりするので、<br>
 そこからすぐに編集して保存できるようにしておく。<br>
+
+# モードの説明
+## new
+新規プロジェクトを生成します。<br>
+・cordova create<br>
+・cordova platform add<br>
+・cordova plugin add cordova-plugin-admobpro<br>
+・cordova prepare<br>
+
+## gmr
+プロジェクトのゲーム内容を更新します。<br>
+・cordova plugin add cordova-plugin-admobpro<br>
+・cordova prepare<br>
+
+## ref
+Cordovaプロジェクトを更新します。<br>
+・cordova prepare<br>
+
+## tes
+PCにUSBデバッグ接続されたAndroid端末でテストプレイします。<br>
+・cordova run android<br>
+
+## key
+新規キーストアを生成します。<br>
+・keytool<br>
+
+## dep
+Google Playにアップ可能なAPKを生成します。<br>
+※正常な動作にはキーストアが必要です。<br>
+・cordova build android<br>
+・jarsigner<br>
+・zipalign<br>
+
+## plg
+プロジェクトにインストールされているプラグインを一覧表示する。<br>
+・cordova plugin ls<br>
+
+## apd
+キーストアが出力されるフォルダを開く。<br>
+
+## ksd
+Google Playにアップ可能なAPKが出力されるフォルダを開く。<br>
+
+## con
+プロジェクトがカレントディレクトリに設定されたコマンドプロンプトを開く。<br>
+
+## end
+バッチを終了する。<br>
+
 
 # ツクールMVで作ったゲームをGooglePlayにリリースできるようにするまで
 １．バッチを起動する<br>
