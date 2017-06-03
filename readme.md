@@ -1,5 +1,5 @@
 # MV 2 Cordova
-Version 1.0.1<br>
+Version 1.1.0<br>
 
 # これは何？
 ツクールMVゲームをAndroid対応Cordovaアプリに「しやすくする」ツールです。<br>
