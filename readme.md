@@ -122,9 +122,12 @@ Google Playにアップ可能なAPKが出力されるフォルダを開く。<br
 ９．「txt」を入力すると index.html が開くので指示通りに編集・保存してから「yes」<br>
 10．AdMobを使うなら「yes」、使わないなら「yes以外の適当な文字列」を入力<br>
 ### AdMobを使う場合：
-　js フォルダが開くので、<br>
+#### admob.js を使う場合：
+　js フォルダが開き、<br>
 　[この記事](http://presentcall.com/rpg%E3%83%84%E3%82%AF%E3%83%BC%E3%83%ABmv%E3%81%A7admob%E5%BA%83%E5%91%8A%E3%82%92%E8%A1%A8%E7%A4%BA/)の「制御スクリプトの作成」のコードを「admob.js」としてそこに保存。<br>
-　「Android用広告ユニットID」と「MyAdmobWindow()」の中を書き換えて保存してから「yes」<br>
+　「Android用広告ユニットID」と「MyAdmobWindow()」の中を書き換えて保存してから「yes」を入力<br>
+#### H2A_AdMob_Android.js を使う場合：
+　そのまま何もせず「yes」を入力。<br>
 ### AdMobを使わない場合：
 　そのまま次へ進む。<br>
 ## モード選択画面
