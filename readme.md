@@ -1,5 +1,5 @@
 # MV 2 Cordova
-Version 1.0.1
+Version 1.0.1<br>
 
 # これは何？
 ツクールMVゲームをAndroid対応Cordovaアプリに「しやすくする」ツールです。<br>
@@ -52,6 +52,11 @@ Cordovaプロジェクトを更新します。<br>
 PCにUSBデバッグ接続されたAndroid端末でテストプレイします。<br>
 ・cordova run android<br>
 
+## rtes
+Cordovaプロジェクトを更新後、PCにUSBデバッグ接続されたAndroid端末でテストプレイします。<br>
+・cordova prepare<br>
+・cordova run android<br>
+
 ## key
 新規キーストアを生成します。<br>
 ・keytool<br>
@@ -73,6 +78,9 @@ Google Playにアップ可能なAPKを生成します。<br>
 ## ksd
 Google Playにアップ可能なAPKが出力されるフォルダを開く。<br>
 
+## www
+プロジェクトの www フォルダを開く。<br>
+
 ## con
 プロジェクトがカレントディレクトリに設定されたコマンドプロンプトを開く。<br>
 
@@ -93,6 +101,10 @@ Google Playにアップ可能なAPKが出力されるフォルダを開く。<br
 ２．必要ならtesモードでテストプレイ<br>
 ３．depモードでAPKを生成<br>
 ４．そのAPKをリリースする<br>
+
+## 上級者向けの手っ取り早いテストプレイ方法
+１．更新が必要なファイルだけを上書き・変更<br>
+２．rtesモードでテストプレイ<br>
 
 
 # ツクールMVで作ったゲームをGooglePlayにリリースできるようにするまで
@@ -131,7 +143,11 @@ Google Playにアップ可能なAPKが出力されるフォルダを開く。<br
 18．このAPKをGooglePlayDeveloperでリリース処理をする<br>
 19．リリース完了！<br>
 
+# H2A_AdMob_Android.js について
+admob.jsを導入する代わりにこのプラグインをツクールMV側で設定することで、<br>
+バナー広告とインタースティシャル広告を設定することができます。<br>
+
 # 注意
 ・環境によっては正常に動きません。動作保障しませんので自己責任でお取り扱いください。<br>
 ・depにより出力されたAPK置き場にすでに同じ名前のAPKがあると、上書きされないことがあります。<br>
-・MITライセンスです。著作者は「Had2Apps」です。<br>
+・MITライセンスです。作者は「Had2Apps」です。<br>

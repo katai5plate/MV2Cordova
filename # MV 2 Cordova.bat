@@ -29,7 +29,7 @@ set K_MEMO=%C_ROOT%\keystore_memo.txt
 rem ===== メイン ============================================
 
 echo.
-echo ■■■ MV 2 Cordova ■■■ v1.0.1 by Had2Apps
+echo ■■■ MV 2 Cordova ■■■ v1.1.0 by Had2Apps
 echo.
 
 echo ▼ ディレクトリ名を入力してください
@@ -45,7 +45,6 @@ if not exist %Z_APK% mkdir %Z_APK%
 if not exist %K_SAVE% mkdir %K_SAVE%
 
 :msel
-cd %C_ROOT%
 set C_YES=err
 echo ルート          ：%C_ROOT%
 echo 作業            ：%C_DIRECT%
@@ -63,27 +62,34 @@ echo new : 新規プロジェクト
 echo gmr : ゲームの更新
 echo ref : プロジェクトの更新のみ
 echo tes : 実機テストプレイ（必須：AndroidとUSBデバッグ接続）
+echo rtes: ref と tes を連続で実行します
 echo key : 新規キーストア
 echo dep : 証明付き APK のビルド
 echo plg : プラグインの確認
 echo apd : APKの保管場所を開く（無い場合は開きません）
 echo ksd : キーストアの保管場所を開く（無い場合は開きません）
+echo www : www ディレクトリを開く
 echo con : コンソールを開く
 echo end : 終了
 echo.
-echo ★ HINT：新規の場合の手順　new → (tes) → key → dep
-echo ★ HINT：更新の場合の手順　gmr → (tes) → dep
+echo ★ HINT：新規の場合の手順          new → (tes) → key → dep
+echo ★ HINT：更新の場合の手順(初心者)  gmr → (tes) → dep
+echo ★ HINT：更新の場合の手順(上級者)  www → ref → (tes) → dep
+:msel3
 echo.
-set /p C_YES= "INPUT : "
+cd %C_ROOT%
+set /p C_YES= "MODE : "
 IF %C_YES%==new goto new
 IF %C_YES%==gmr goto gmr
 IF %C_YES%==ref goto ref
 IF %C_YES%==tes goto tes
+IF %C_YES%==rtes goto rtes
 IF %C_YES%==key goto key	
 IF %C_YES%==dep goto dep
 IF %C_YES%==plg goto plg
 IF %C_YES%==apd goto apd
 IF %C_YES%==ksd goto ksd
+IF %C_YES%==www goto www
 IF %C_YES%==con goto con
 IF %C_YES%==end goto endbat
 goto msel2
@@ -176,7 +182,7 @@ rem ----- admob -----
 
 set C_YES=err
 echo.
-echo ▼ AdMobを適用しますか？
+echo ▼ AdMobプラグインを適用しますか？
 echo yes     : 適用する
 echo yes以外 : 適用しない
 set /p C_YES= "INPUT : "
@@ -190,15 +196,18 @@ echo.
 echo.
 echo -----------------------------------------------------------
 echo ■ js の中に admob.js を入れ、設定を書き換えてください
-
-explorer "www\js"
+echo    （もし H2A_AdMob_Android.js を使用している場合はスキップ）
 
 :ad1
 set C_YES=err
 echo.
 echo ▼ 終わったなら「yes」と入力してください
+echo yes : 続行
+echo js  : jsフォルダを開く
 set /p C_YES= "INPUT : "
+IF %C_YES%==js explorer "www\js"
 IF NOT %C_YES%==yes goto ad1
+
 
 rem ----- 7 -----
 :step7
@@ -228,6 +237,24 @@ rem ===== テストプレイ ============================================
 :tes
 
 cd %C_DIRECT%
+
+echo.
+echo ◇ ログ → cordova run android  -d ◇
+call cordova run android  -d
+echo.
+
+goto finish
+
+
+rem ===== 更新 ============================================
+:rtes
+
+cd %C_DIRECT%
+
+echo.
+echo ◇ ログ → cordova prepare ◇
+call cordova prepare
+echo.
 
 echo.
 echo ◇ ログ → cordova run android  -d ◇
@@ -315,7 +342,7 @@ rem ===== APK保管場所 ============================================
 
 if exist %Z_APK% explorer %Z_APK%
 
-goto finish
+goto msel3
 
 
 rem ===== キーストア保管場所 ============================================
@@ -323,7 +350,22 @@ rem ===== キーストア保管場所 ============================================
 
 if exist %K_SAVE% explorer %K_SAVE%
 
-goto finish
+goto msel3
+
+
+rem ===== www を開く ============================================
+:www
+
+echo.
+echo -----------------------------------------------------------
+echo ■ 「HTMLをすでに変更済み」且つ「AdMobの適用状況を保持したい」
+echo 　 という状況でプロジェクトを更新したい場合は、
+echo 　 ツクールMVの www のうち index.html 以外を上書きしてください
+echo 　 その後、refモードを実行してください
+
+explorer "%C_DIRECT%\www"
+
+goto msel3
 
 
 rem ===== プラグイン確認 ============================================
@@ -336,7 +378,7 @@ echo ◇ ログ → call cordova plugin ls ◇
 call call cordova plugin ls
 echo.
 
-goto finish
+goto msel3
 
 
 rem ===== コンソール ============================================
